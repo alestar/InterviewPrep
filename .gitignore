@@ -10,6 +10,7 @@
 # Intellij
 *.iml
 .idea/workspace.xml
+.idea/vcs.xml
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/dictionaries
