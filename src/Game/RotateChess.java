@@ -57,26 +57,48 @@ public class RotateChess {
 
         String[] splittedNotation= notation.split("/");
 
-        String r8= splittedNotation[splittedNotation.length-1]; //row = 8 index= 7
-        List<String> r7= Arrays.asList(splittedNotation[splittedNotation.length-2]); //row = 7 index= 6
-        List<String> r6= Arrays.asList(splittedNotation[splittedNotation.length-3]); //row = 6 index= 5
-        List<String> r5= Arrays.asList(splittedNotation[splittedNotation.length-4]); //row = 5 index= 4
-        List<String> r4= Arrays.asList(splittedNotation[splittedNotation.length-5]); //row = 4 index= 3
-        List<String> r3= Arrays.asList(splittedNotation[splittedNotation.length-6]); //row = 3 index= 2
-        List<String> r2= Arrays.asList(splittedNotation[splittedNotation.length-7]); //row = 2 index= 1
-        List<String> r1= Arrays.asList(splittedNotation[splittedNotation.length-8]); //row = 1 index= 0
+        char[] r8= (splittedNotation[splittedNotation.length-1].toCharArray()); //row = 9 index= 7
+        char[] r7= (splittedNotation[splittedNotation.length-2].toCharArray()); //row = 8 index= 6
+        char[] r6= (splittedNotation[splittedNotation.length-3].toCharArray()); //row = 6 index= 5
+        char[] r5= (splittedNotation[splittedNotation.length-4].toCharArray()); //row = 5 index= 4
+        char[] r4= (splittedNotation[splittedNotation.length-5].toCharArray()); //row = 4 index= 3
+        char[] r3= (splittedNotation[splittedNotation.length-6].toCharArray()); //row = 3 index= 2
+        char[] r2= (splittedNotation[splittedNotation.length-7].toCharArray()); //row = 2 index= 1
+        char[] r1= (splittedNotation[splittedNotation.length-8].toCharArray()); //row = 1 index= 0
 
-        int ir1 = 0, ir2 =0, ir3 = 0, ir4 = 0, ir5 = 0, ir6 = 0, ir7 = 0, ir8 = 0;
-        int checkRowCount = 1;
+        Integer ir1 = 0, ir2 =0, ir3 = 0, ir4 = 0, ir5 = 0, ir6 = 0, ir7 = 0, ir8 = 0;
+        int checkRowCount = 0;
+        StringBuilder result = new StringBuilder();
         while(checkRowCount < 8){
-
-            char c8= r8.charAt(ir8);
-
-
-
+            StringBuilder newRow= new StringBuilder();
+            Integer addedNum=0;
+            addCharToRow(newRow, r8, ir8, addedNum);
+            addCharToRow(newRow, r7, ir7, addedNum);
+            addCharToRow(newRow, r6, ir6, addedNum);
+            addCharToRow(newRow, r5, ir5, addedNum);
+            addCharToRow(newRow, r4, ir4, addedNum);
+            addCharToRow(newRow, r3, ir3, addedNum);
+            addCharToRow(newRow, r2, ir2, addedNum);
+            addCharToRow(newRow, r1, ir1, addedNum);
+            newRow.append('/');
+            checkRowCount++;
+            result.append(newRow.toString());
         }
 
 
+         return result.toString();
+    }
+
+    static void addCharToRow(StringBuilder builder, char[] currentRow, Integer currRowIndex, Integer addedNum){
+        if(Character.isDigit(currentRow[currRowIndex])) {
+            currentRow[currRowIndex]= (char)((int)currentRow[currRowIndex]--);
+            addedNum=  addedNum +1;
+        }else {
+            if(addedNum > 0)
+                builder.append(addedNum);
+            builder.append(currentRow[currRowIndex]);
+            currRowIndex= currRowIndex +1;
+        }
 
     }
 
