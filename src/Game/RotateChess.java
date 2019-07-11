@@ -51,6 +51,22 @@ import java.util.List;
 
 public class RotateChess {
 
+    public static class Reference<T> {
+        private T referent;
+
+        public Reference(T initialValue) {
+            referent = initialValue;
+        }
+
+        public void set(T newVal) {
+            referent = newVal;
+        }
+
+        public T get() {
+            return referent;
+        }
+    }
+
     public static String  chessNotation(String notation) {
 
         String chessNotation = "";
@@ -66,12 +82,20 @@ public class RotateChess {
         char[] r2= (splittedNotation[splittedNotation.length-7].toCharArray()); //row = 2 index= 1
         char[] r1= (splittedNotation[splittedNotation.length-8].toCharArray()); //row = 1 index= 0
 
-        Integer ir1 = 0, ir2 =0, ir3 = 0, ir4 = 0, ir5 = 0, ir6 = 0, ir7 = 0, ir8 = 0;
+        Reference<Integer> ir1 =  new Reference<>(0);
+        Reference<Integer> ir2 = new Reference<>(0);
+        Reference<Integer> ir3 = new Reference<>(0);
+        Reference<Integer> ir4 = new Reference<>(0);
+        Reference<Integer> ir5 = new Reference<>(0);
+        Reference<Integer> ir6 = new Reference<>(0);
+        Reference<Integer> ir7 = new Reference<>(0);
+        Reference<Integer> ir8 = new Reference<>(0);
+
         int checkRowCount = 0;
         StringBuilder result = new StringBuilder();
         while(checkRowCount < 8){
             StringBuilder newRow= new StringBuilder();
-            Integer addedNum=0;
+            Reference<Integer> addedNum = new Reference<>(0);
             addCharToRow(newRow, r8, ir8, addedNum);
             addCharToRow(newRow, r7, ir7, addedNum);
             addCharToRow(newRow, r6, ir6, addedNum);
@@ -80,24 +104,39 @@ public class RotateChess {
             addCharToRow(newRow, r3, ir3, addedNum);
             addCharToRow(newRow, r2, ir2, addedNum);
             addCharToRow(newRow, r1, ir1, addedNum);
+
+            if(addedNum.get() > 0) {
+                newRow.append(addedNum.get());
+                addedNum.set(0);
+            }
             newRow.append('/');
             checkRowCount++;
             result.append(newRow.toString());
+            // Input:       2kr3r/pp1nbppp/3p1n2/q1pPp1B1/4P1b1/2N2N2/PPP1BPPP/R2Q2RK
+            // Expected:    RP2q1p1/1P4p1/1PN1p2k/Q3Ppnr/1B1Pp1b1/1PN2np1/RP1bB1p1/KP4pr
+            // Output:      RP2q1p1/1P4p1/1P6/2 1 2 / 1N1p  k/Q 1 Ppnr/1B1Pp1b1/1P4p1/
         }
 
 
          return result.toString();
     }
 
-    static void addCharToRow(StringBuilder builder, char[] currentRow, Integer currRowIndex, Integer addedNum){
-        if(Character.isDigit(currentRow[currRowIndex])) {
-            currentRow[currRowIndex]= (char)((int)currentRow[currRowIndex]--);
-            addedNum=  addedNum +1;
+    static void addCharToRow(StringBuilder builder, char[] currentRow, Reference<Integer>  currRowIndex, Reference<Integer> addedNum){
+        if(Character.isDigit(currentRow[currRowIndex.get()])) {
+            Integer num= Character.getNumericValue(currentRow[currRowIndex.get()]);
+            if(num == 0)
+                currRowIndex.set(currRowIndex.get() +1);
+            else {
+                currentRow[currRowIndex.get()] = Character.forDigit(--num, 10);
+                addedNum.set(addedNum.get() + 1);
+            }
         }else {
-            if(addedNum > 0)
-                builder.append(addedNum);
-            builder.append(currentRow[currRowIndex]);
-            currRowIndex= currRowIndex +1;
+            if(addedNum.get() > 0) {
+                builder.append(addedNum.get());
+                addedNum.set(0);
+            }
+            builder.append(currentRow[currRowIndex.get()]);
+            currRowIndex.set(currRowIndex.get() +1);
         }
 
     }
@@ -105,10 +144,11 @@ public class RotateChess {
     // Driver program
     public static void main(String[] args)
     {
-        String input = "kr3r/pp1nbppp/3p1n2/q1pPp1B1/4P1b1/2N2N2/PPP1BPPP/R2Q2RK";
-
+        String input = "2kr3r/pp1nbppp/3p1n2/q1pPp1B1/4P1b1/2N2N2/PPP1BPPP/R2Q2RK";
         String output = RotateChess.chessNotation(input);
 
-        System.out.println("The oputput of rotate chess is: " + output);
+        System.out.println("Input: 2kr3r/pp1nbppp/3p1n2/q1pPp1B1/4P1b1/2N2N2/PPP1BPPP/R2Q2RK");
+        System.out.println("Expected: RP2q1p1/1P4p1/1PN1p2k/Q3Ppnr/1B1Pp1b1/1PN2np1/RP1bB1p1/KP4pr");
+        System.out.println("Output: : " + output);
     }
 }
