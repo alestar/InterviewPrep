@@ -4,7 +4,17 @@ import java.util.HashMap;
 
 /**
  * Created by Alestar on 2/16/2019.
- */
+ *
+ * A trie is a discrete data structure that's not quite well-known or widely-mentioned in typical algorithm courses, but nevertheless an important one.
+ *
+ * A trie (also known as a digital tree) and sometimes even radix tree or prefix tree (as they can be searched by prefixes),
+ * is an ordered tree structure, which takes advantage of the keys that it stores – usually strings.
+ *
+ * A node's position in the tree defines the 'key' or letter with which that node is associated,
+ * which makes tries different in comparison to binary search trees, in which a node stores a key that corresponds only to that node.
+ *
+ * All descendants of a node have a common prefix of a String associated with that node, whereas the root is associated with an empty String.
+  */
 public class TrieUsingHashMap {
 
     class TrieNode {
