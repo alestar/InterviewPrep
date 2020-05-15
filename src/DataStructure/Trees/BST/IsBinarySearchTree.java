@@ -66,7 +66,7 @@ public class IsBinarySearchTree {
         }
 
         /* then print the data of node */
-        System.out.println("    " + dir + " Current NodeGeneric: " + node.toString() + ", ");
+        System.out.println("    " + dir + " Current LinkedListNodeGeneric: " + node.toString() + ", ");
 
         if(node.right!=null) { /* now recur on right child */
             String d = "        Going Right -> ";
@@ -143,11 +143,11 @@ public class IsBinarySearchTree {
 
         BinaryTreeNode btn1= bt.createBinaryTreeNode(50);// Root
 
-        BinaryTreeNode btn2= bt.createBinaryTreeNode(30);// NodeGeneric
+        BinaryTreeNode btn2= bt.createBinaryTreeNode(30);// LinkedListNodeGeneric
         BinaryTreeNode btn4= bt.createBinaryTreeNode(20);// Child left
         BinaryTreeNode btn5= bt.createBinaryTreeNode(25);// Child right
 
-        BinaryTreeNode btn3= bt.createBinaryTreeNode(80);// NodeGeneric
+        BinaryTreeNode btn3= bt.createBinaryTreeNode(80);// LinkedListNodeGeneric
         BinaryTreeNode btn6= bt.createBinaryTreeNode(70);// Child left
         BinaryTreeNode btn8= bt.createBinaryTreeNode(90);// Child Right
 

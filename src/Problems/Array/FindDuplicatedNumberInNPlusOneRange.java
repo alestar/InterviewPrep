@@ -222,7 +222,7 @@ public class FindDuplicatedNumberInNPlusOneRange {
 
         System.out.println("    The 'ptr1' value = " + ptr1);
         System.out.println("    The 'ptr2' value = " + ptr2);
-        while (ptr1 != ptr2){
+        while (ptr1 != ptr2){// This second loop is to found where the cycle begins in the array
             ptr1= nums[ptr1];
             ptr2= nums[ptr2];
             System.out.println("    The 'ptr1' value = " + ptr1);

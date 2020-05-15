@@ -61,11 +61,11 @@ public class BalancedBinaryTree {
             return new BinaryTreeNode(value);
         }
         if (current.left == null || value < current.value) {
-            System.out.println("Adding NodeGeneric to Left <- : " + current.toString() + ", ");
+            System.out.println("Adding LinkedListNodeGeneric to Left <- : " + current.toString() + ", ");
             return current.left = addRecursive(current.left, value);
         }
         else if (current.right == null || value > current.value) {
-            System.out.println("Adding NodeGeneric to Right -> : " + current.toString() + ", ");
+            System.out.println("Adding LinkedListNodeGeneric to Right -> : " + current.toString() + ", ");
             return current.right = addRecursive(current.right, value);
         }
         else {
@@ -94,7 +94,7 @@ public class BalancedBinaryTree {
         printPostorder(node.right);
 
         // now deal with the node
-        System.out.println("Current NodeGeneric: " + node.toString() + ", ");
+        System.out.println("Current LinkedListNodeGeneric: " + node.toString() + ", ");
     }
 
     /** Given a binary tree, print its nodes in inorder*/
@@ -109,7 +109,7 @@ public class BalancedBinaryTree {
         }
 
         /* then print the data of node */
-        System.out.println("    " + dir + " Current NodeGeneric: " + node.toString() + ", ");
+        System.out.println("    " + dir + " Current LinkedListNodeGeneric: " + node.toString() + ", ");
 
         if(node.right!=null) { /* now recur on right child */
             String d = "        Going Right -> ";
@@ -123,7 +123,7 @@ public class BalancedBinaryTree {
             return;
 
         /* first print data of node */
-        System.out.println("Current NodeGeneric: " + node.toString() + ", ");
+        System.out.println("Current LinkedListNodeGeneric: " + node.toString() + ", ");
 
         /* then recur on left sutree */
         printPreorder(node.left);

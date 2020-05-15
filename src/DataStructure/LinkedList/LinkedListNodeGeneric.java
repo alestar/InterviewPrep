@@ -1,10 +1,10 @@
 package DataStructure.LinkedList;
 
-public class NodeGeneric<T> {
+public class LinkedListNodeGeneric<T> {
     private T data;
-    private NodeGeneric next;
+    private LinkedListNodeGeneric next;
 
-    public NodeGeneric(T data) {
+    public LinkedListNodeGeneric(T data) {
        this.data = data;
     }
 
@@ -12,7 +12,7 @@ public class NodeGeneric<T> {
         return data;
     }
 
-    public NodeGeneric getNext() {
+    public LinkedListNodeGeneric getNext() {
         return next;
     }
 
@@ -20,7 +20,7 @@ public class NodeGeneric<T> {
         this.data = data;
     }
 
-    public void setNext(NodeGeneric next) {
+    public void setNext(LinkedListNodeGeneric next) {
         this.next = next;
     }
 }

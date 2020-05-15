@@ -2,6 +2,11 @@ package Algorithms.Search;
 
 /**
  * Created by Alestar on 1/14/2019.
+ *
+ * if k = log n
+ *
+ * where k = numbers of times required to multiply 1 by 'base'(i.e '2') until is equal to n
+ * or k = numbers of times required to divide by 'base'(i.e '2') until is equal to 1
  */
 public class BinarySearch {
 
@@ -44,6 +49,49 @@ public class BinarySearch {
         }
 
         return false;
+    }
+
+
+    private static boolean binarySearchIter(int[] array, int x) {
+        int left =0;
+        int right = array.length -1;
+
+        while(left <= right) {
+            int mid = left + ((right - left) / 2);//use this form to prevent overflow
+            if (array[mid] == x) {
+                return true;
+            } else if (x < array[mid]) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return false;
+    }
+
+    private static boolean binarySearchRecursv(int[] array, int x, int left, int right) {
+
+        if (left > right) {
+            return false;
+        }
+        int mid = left + ((right -left) / 2);//use this form to prevent overflow
+
+        if (array[mid] == x) {
+            return true;
+        } else if (x < array[mid]){
+            return binarySearchRecursv(array, x, left, mid - 1);
+        }else{
+            return binarySearchRecursv(array, x, mid +1,right);
+        }
+
+    }
+
+    public static boolean binarySearchRecursv(int[] array , int x){
+        return binarySearchRecursv(array, x, 0, array.length -1);
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }

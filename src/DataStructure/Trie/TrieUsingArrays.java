@@ -10,8 +10,7 @@ public class TrieUsingArrays {
     static final int ALPHABET_SIZE = 26;
 
     // trie node
-    static class TrieNode
-    {
+    static class TrieNode{
         TrieNode[] children = new TrieNode[ALPHABET_SIZE];
 
         // isEndOfWord is true if the node represents
@@ -25,22 +24,18 @@ public class TrieUsingArrays {
         }
     };
 
-    static TrieNode root;
+    static TrieNode root  = new TrieNode();
 
-    // If not present, inserts key into trie
-    // If the key is prefix of trie node,
+    // If not present, inserts word into trie
+    // If the word is prefix of trie node,
     // just marks leaf node
-    static void insert(String key)
-    {
-        int level;
-        int length = key.length();
+    static void insert(String word){
         int index;
-
         TrieNode curentNode = root;
 
-        for (level = 0; level < length; level++)
+        for (int level = 0; level < word.length(); level++)
         {
-            index = key.charAt(level) - 'a';
+            index = word.charAt(level) - 'a';
             if (curentNode.children[index] == null)
                 curentNode.children[index] = new TrieNode();
 
@@ -51,45 +46,39 @@ public class TrieUsingArrays {
         curentNode.isEndOfWord = true;
     }
 
-    // Returns true if key presents in trie, else false
-    static boolean search(String key)
-    {
-        int level;
-        int length = key.length();
+    // Returns true if word presents in trie, else false
+    static boolean search(String word){
+
         int index;
-        TrieNode pCrawl = root;
+        TrieNode curr = root;
 
-        for (level = 0; level < length; level++)
+        for (int level = 0; level < word.length(); level++)
         {
-            index = key.charAt(level) - 'a';
+            index = word.charAt(level) - 'a';
 
-            if (pCrawl.children[index] == null)
+            if (curr.children[index] == null)
                 return false;
 
-            pCrawl = pCrawl.children[index];
+            curr = curr.children[index];
         }
 
-        return (pCrawl != null && pCrawl.isEndOfWord);
+        return (curr != null && curr.isEndOfWord);
     }
 
     // Driver
     public static void main(String args[])
     {
-        // Input keys (use only 'a' through 'z' and lower case)
-        String keys[] = {"the", "a", "there", "answer", "any",
+        // Input words (use only 'a' through 'z' and lower case)
+        String words[] = {"the", "a", "there", "answer", "any",
                 "by", "bye", "their"};
-
         String output[] = {"Not present in trie", "Present in trie"};
 
 
-        root = new TrieNode();
-
         // Construct trie
-        int i;
-        for (i = 0; i < keys.length ; i++)
-            insert(keys[i]);
+        for (int i = 0; i < words.length ; i++)
+            insert(words[i]);
 
-        // Search for different keys
+        // Search for different words
         if(search("the") == true)
             System.out.println("the --- " + output[1]);
         else System.out.println("the --- " + output[0]);

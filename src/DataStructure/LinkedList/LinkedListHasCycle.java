@@ -9,11 +9,11 @@ public class LinkedListHasCycle {
 
     public static boolean hasCycle(LinkedListGeneric linkedListGen) {
 
-        NodeGeneric head = linkedListGen.head();
+        LinkedListNodeGeneric head = linkedListGen.head();
         if (head == null) return false;
 
-        NodeGeneric fast = head.getNext();
-        NodeGeneric slow = head;
+        LinkedListNodeGeneric fast = head.getNext();
+        LinkedListNodeGeneric slow = head;
         while (fast != null && fast.getNext()!=null && slow != null) {
             if (fast == slow) {// When pointers collide , there is a loop in the Linked List
                 return true;

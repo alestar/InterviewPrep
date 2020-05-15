@@ -5,9 +5,9 @@ package DataStructure.LinkedList;
  */
 public class FindDuplicateNumberLinkedList {
 
-    public static int findDuplicate(int[] intArray) {
+    public static int findDuplicate(int[] arr) {
 
-        final int n = intArray.length - 1;
+        final int n = arr.length - 1;
 
         // STEP 1: GET INSIDE A CYCLE
         // start at position n+1 and walk n steps to
@@ -17,18 +17,18 @@ public class FindDuplicateNumberLinkedList {
 
             // we subtract 1 from the current position to step ahead:
             // the 2nd *position* in an array is *index* 1
-            positionInCycle = intArray[positionInCycle - 1];
+            positionInCycle = arr[positionInCycle - 1];
         }
 
         // STEP 2: FIND THE LENGTH OF THE CYCLE
         // find the length of the cycle by remembering a position in the cycle
         // and counting the steps it takes to get back to that position
         int rememberedPositionInCycle = positionInCycle;
-        int currentPositionInCycle = intArray[positionInCycle - 1];  // 1 step ahead
+        int currentPositionInCycle = arr[positionInCycle - 1];  // 1 step ahead
         int cycleStepCount = 1;
 
         while (currentPositionInCycle != rememberedPositionInCycle) {
-            currentPositionInCycle = intArray[currentPositionInCycle - 1];
+            currentPositionInCycle = arr[currentPositionInCycle - 1];
             cycleStepCount += 1;
         }
 
@@ -39,14 +39,14 @@ public class FindDuplicateNumberLinkedList {
         int pointerStart = n + 1;
         int pointerAhead = n + 1;
         for (int i = 0; i < cycleStepCount; i++) {
-            pointerAhead = intArray[pointerAhead - 1];
+            pointerAhead = arr[pointerAhead - 1];
         }
 
         // advance until the pointers are in the same position
         // which is the first node in the cycle
         while (pointerStart != pointerAhead) {
-            pointerStart = intArray[pointerStart - 1];
-            pointerAhead = intArray[pointerAhead - 1];
+            pointerStart = arr[pointerStart - 1];
+            pointerAhead = arr[pointerAhead - 1];
         }
 
         // since there are multiple values pointing to the first node

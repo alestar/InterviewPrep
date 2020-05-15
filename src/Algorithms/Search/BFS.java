@@ -53,6 +53,7 @@ public class BFS {
                 return reconstructPath(howWeReachedNodes, startNode, endNode);
             }
 
+            //Otherwise, expand that node and check the neighbors if they need to be visited or not
             for (String neighbor : graph.get(currentNode)) {
                 if (!howWeReachedNodes.containsKey(neighbor)) {
                     nodesToVisit.add(neighbor);
@@ -63,7 +64,8 @@ public class BFS {
 
         // if we get here, then we never found the end node
         // so there's NO path from startNode to endNode
-        return null;
+        throw new IllegalArgumentException("No Path found");
+       // return null;
     }
     public static void main(String[] args) {
         Map<String, String[]> network = new HashMap<String, String[]>() {{
@@ -76,7 +78,11 @@ public class BFS {
             put("Miguel",  new String[] { "Amelia", "Adam", "Liam", "Nathan" });
             put("Noam",    new String[] { "Nathan", "Jayden", "William" });
             put("Omar",    new String[] { "Ren", "Min", "Scott" });
-        }};
-        System.out.println("The route for the message is: " + Arrays.toString(bfsGetPath(network,"Jayden", "Adam")));
+            put("Scott",    new String[] { "Min"});
+   }};
+        System.out.println("Expected Route from 'Jayden' to 'Adam' the message is 'Jayden -> Amelia -> Adam': " );
+        System.out.println("Actual route for the message is: " + Arrays.toString(bfsGetPath(network,"Jayden", "Adam"))); // Expected Jayden -> Amelia-> Adam
+        System.out.println("Expected Route from 'Jayden' to 'Adam' the message is 'Ren -> Jayden -> Amelia -> Adam': " );
+        System.out.println("Actual route for the message is: " + Arrays.toString(bfsGetPath(network,"Ren", "Adam"))); // Expected Ren -> Jayden -> Amelia-> Adam
     }
 }

@@ -12,11 +12,6 @@ public class SubSetSum {
         return findSubSetSumRecv(  arr,  total, arr.length -1);
     }
 
-    public static int countSubMemo(int[] arr, int total) {
-        HashMap<String, Integer> memo= new HashMap<>();
-        return findSubSetSumMemo(  arr,  total, arr.length -1, memo);
-    }
-
     public static int findSubSetSumRecv(int[] arr, int total, int index) {
 
         if (total == 0) // The empty set that add up to '0' is still consider a set, therefore '1' is returned
@@ -35,7 +30,12 @@ public class SubSetSum {
             return findSubSetSumRecv(arr, total - arr[index], index - 1) + findSubSetSumRecv(arr, total, index - 1);
         }
 
-}
+    }
+
+    public static int countSubMemo(int[] arr, int total) {
+        HashMap<String, Integer> memo= new HashMap<>();
+        return findSubSetSumMemo(  arr,  total, arr.length -1, memo);
+    }
 
     public static int findSubSetSumMemo(int [] arr, int total, int index, HashMap<String, Integer> memo){
         String key= Integer.toString(total) + ':' + Integer.toString(index);
@@ -48,7 +48,7 @@ public class SubSetSum {
         }
         if(total == 0) // The empty set that add up to '0' is still consider a set, therefore '1' is returned
             return 1;
-        else if(total < 0) // If only positive numbers are used is imposible to return a Set that addup to negative, therefore '0' is returned
+        else if(total < 0) // If only positive numbers are used is impossible to return a Set that adds up to negative, therefore '0' is returned
             return 0;
         else if(index < 0) // arr out of bound
             return 0;
@@ -78,6 +78,6 @@ public class SubSetSum {
         System.out.println("Input 'sum' = " + sum);
 
         int res= countSubMemo(arr,sum);
-        System.out.println("Total Number of Subsets found that add to 'sum'= " + res);
+        System.out.println("Total Number of Subsets found that add to ( 'sum'= " + sum  + " ) is = "+ res);
     }
 }

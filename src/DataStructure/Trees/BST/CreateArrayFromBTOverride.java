@@ -51,7 +51,7 @@ public class CreateArrayFromBTOverride {
         }
 
         /* then print the data of node */
-        System.out.println("    " + dir + " Current NodeGeneric: " + node.toString() + ", ");
+        System.out.println("    " + dir + " Current LinkedListNodeGeneric: " + node.toString() + ", ");
 
         if(node.right!=null) { /* now recur on right child */
             String d = "        Going Right -> ";

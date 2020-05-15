@@ -2,28 +2,28 @@ package DataStructure.LinkedList;
 
 public class LinkedListGeneric<T> {
 
-    private NodeGeneric<T> head;
+    private LinkedListNodeGeneric<T> head;
     private int size = 0;
 
     public int size() {
         return size;
     }
 
-    public NodeGeneric<T> head() {
+    public LinkedListNodeGeneric<T> head() {
         return head;
     }
 
     public T behead() {
-        NodeGeneric<T> node = head;
+        LinkedListNodeGeneric<T> node = head;
         head=head.getNext();
         return node.getData();
     }
 
     public void insertWithData (T newData, T existData){
 
-        NodeGeneric found = this.findWithData(existData);
+        LinkedListNodeGeneric found = this.findWithData(existData);
         if(found!=null) {
-            NodeGeneric newNode = new NodeGeneric(newData);
+            LinkedListNodeGeneric newNode = new LinkedListNodeGeneric(newData);
             newNode.setNext(found.getNext());
             found.setNext(newNode);
         }
@@ -31,7 +31,7 @@ public class LinkedListGeneric<T> {
     }
 
     public void prepend(T data) {
-        NodeGeneric newHead = new NodeGeneric(data);
+        LinkedListNodeGeneric newHead = new LinkedListNodeGeneric(data);
         newHead.setNext(head);
         head= newHead;
         size++;
@@ -39,7 +39,7 @@ public class LinkedListGeneric<T> {
 
     public void append(T data) {// Appending is O(n)
 
-        NodeGeneric node = new NodeGeneric(data);
+        LinkedListNodeGeneric node = new LinkedListNodeGeneric(data);
         if(head == null) {
             head = node;
             size++;
@@ -47,7 +47,7 @@ public class LinkedListGeneric<T> {
         }
         // Else traverse till the getLast node
         // and insert the new_node there
-        NodeGeneric last = this.getLast();
+        LinkedListNodeGeneric last = this.getLast();
         last.setNext(node);
         size++;
     }
@@ -59,7 +59,7 @@ public class LinkedListGeneric<T> {
             return;
         }
 
-        NodeGeneric found = this.findWithData(data);
+        LinkedListNodeGeneric found = this.findWithData(data);
         if(found!= null){
             found.setNext(found.getNext().getNext());
             return;
@@ -67,9 +67,9 @@ public class LinkedListGeneric<T> {
 
     }
 
-    public NodeGeneric findWithData(T data){
-        NodeGeneric res= null;
-        NodeGeneric current = head;
+    public LinkedListNodeGeneric findWithData(T data){
+        LinkedListNodeGeneric res= null;
+        LinkedListNodeGeneric current = head;
         while (current.getNext() != null) {
             if (current.getData() == data) {
                break;
@@ -81,9 +81,9 @@ public class LinkedListGeneric<T> {
         return res;
     }
 
-    public NodeGeneric getLast(){
+    public LinkedListNodeGeneric getLast(){
         //Traverse till the getLast node
-        NodeGeneric current = head;
+        LinkedListNodeGeneric current = head;
         while (current.getNext() != null) {
             current= current.getNext();
         }
@@ -93,8 +93,8 @@ public class LinkedListGeneric<T> {
 
     public void pointLastToNode(T data){
         if(head == null)return;
-        NodeGeneric last= getLast();
-        NodeGeneric found= findWithData(data);
+        LinkedListNodeGeneric last= getLast();
+        LinkedListNodeGeneric found= findWithData(data);
         if (last!= found)
             last.setNext(found);
 
@@ -106,7 +106,7 @@ public class LinkedListGeneric<T> {
             return "";
 
         String list = "[";
-        NodeGeneric current = head;
+        LinkedListNodeGeneric current = head;
         while (current.getNext() != null) {
             if(current.getData() != null)
                 list+= current.getData().toString() + ", ";

@@ -3,7 +3,7 @@ package Problems.String;
 /**
  * Created by Alestar on 3/17/2019.
  */
-public class LongestCommonSubsequence {
+public class LongestCommonSubsequenceInTwoString {
 
     /* Returns length of LCS for X[0..m-1], Y[0..n-1] */
     public static int lcsRecv( char[] X, char[] Y, int m, int n ){
@@ -29,7 +29,7 @@ public class LongestCommonSubsequence {
         return result;
     }
     public static void main(String[] args){
-        LongestCommonSubsequence lcs = new LongestCommonSubsequence();
+        LongestCommonSubsequenceInTwoString lcs = new LongestCommonSubsequenceInTwoString();
         //Problems.String s1 = "AGGTAB";
         //Problems.String s2 = "GXTXAYB";
         //Length of LCS is 4 -> "GTAB"
