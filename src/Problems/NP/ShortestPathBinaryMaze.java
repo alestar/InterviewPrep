@@ -6,7 +6,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class ShortestPathBinaryMaze {
-        // Algorithms.Search.BFS to find the shortest path between
+        // Algorithms.Search.BFS.BFS to find the shortest path between
         // a given source cell to a destination cell.
 
         public static final int ROW = 9;
@@ -26,7 +26,7 @@ public class ShortestPathBinaryMaze {
             int y;
         }
 
-        // An object to store data for queue used in Algorithms.Search.BFS
+        // An object to store data for queue used in Algorithms.Search.BFS.BFS
         static class QueueNode {
             public QueueNode(Point src, int d) {
                 this.pt = src;
@@ -59,14 +59,14 @@ public class ShortestPathBinaryMaze {
             // Mark the source cell as visited
             visited[src.x][src.y] = true;
 
-            // Create a queue for Algorithms.Search.BFS  --> see http://stackoverflow.com/questions/11149707/best-implementation-of-java-queue
+            // Create a queue for Algorithms.Search.BFS.BFS  --> see http://stackoverflow.com/questions/11149707/best-implementation-of-java-queue
             Queue<QueueNode> q = new ArrayDeque<QueueNode>();
 
             // distance of source cell is 0
             QueueNode s = new QueueNode(src, 0);
             q.add(s); // Enqueue source cell
 
-            // Do a Algorithms.Search.BFS starting from source cell
+            // Do a Algorithms.Search.BFS.BFS starting from source cell
             while (!q.isEmpty()) {
                 QueueNode curr = q.peek();
                 Point pt = curr.pt;

@@ -1,4 +1,4 @@
-package Problems;
+package Problems.RecursionAndDP;
 
 import java.util.Arrays;
 
@@ -56,17 +56,17 @@ public class IceCreamParlor {
 
     public static void main(String[] args) {
 
-        int[] princes1 ={1,9,5,4,2,6,5};
-        int[] sorted1 =princes1.clone();
+        int[] prices1 ={1,9,5,4,2,6,5};
+        int[] sorted1 =prices1.clone();
         Arrays.sort(sorted1);
 
         int[] princes2 ={2,7,13,5,4,13,5};
         int[] sorted2 =princes2.clone();
         Arrays.sort(sorted2);
 
-        System.out.println("For array: " + Arrays.toString(princes1));
+        System.out.println("For array: " + Arrays.toString(prices1));
         System.out.println("    sorted: " + Arrays.toString(sorted1));
-        System.out.println("    Found choices: " + Arrays.toString(findChoices(princes1, 10)));
+        System.out.println("    Found choices: " + Arrays.toString(findChoices(prices1, 10)));
 
         System.out.println("For array: " + Arrays.toString(princes2));
         System.out.println("    sorted: " + Arrays.toString(sorted2));

@@ -1,4 +1,4 @@
-package Algorithms.Search;
+package Algorithms.Search.BFS;
 
 import java.util.Scanner;
 import java.util.HashSet;

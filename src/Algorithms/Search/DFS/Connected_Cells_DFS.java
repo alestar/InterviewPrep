@@ -1,4 +1,4 @@
-package Algorithms.Search;
+package Algorithms.Search.DFS;
 
 import java.util.Scanner;
 

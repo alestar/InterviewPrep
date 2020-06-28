@@ -1,4 +1,4 @@
-package Algorithms.Search;
+package Algorithms.Search.BFS;
 
 import java.util.*;
 
@@ -7,8 +7,7 @@ import java.util.*;
  */
 public class BFS {
 
-    private static String[] reconstructPath(Map<String, String> previousNodes,
-                                            String startNode, String endNode) {
+    private static String[] reconstructPath(Map<String, String> previousNodes, String endNode) {
 
         List<String> reversedShortestPath = new ArrayList<>();
 
@@ -50,7 +49,7 @@ public class BFS {
 
             // stop when we reach the end node
             if (currentNode.equals(endNode)) {
-                return reconstructPath(howWeReachedNodes, startNode, endNode);
+                return reconstructPath(howWeReachedNodes, endNode);
             }
 
             //Otherwise, expand that node and check the neighbors if they need to be visited or not

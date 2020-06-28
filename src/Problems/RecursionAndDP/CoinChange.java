@@ -49,8 +49,6 @@ public class CoinChange {
         return ways[money];
     }
 
-
-
     public static void main(String[] args) {
         int[] coins1 = {50,25,10,5,1};
         int[] coins2 = {25,10,5,1};

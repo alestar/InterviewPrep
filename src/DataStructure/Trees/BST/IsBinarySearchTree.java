@@ -90,17 +90,17 @@ public class IsBinarySearchTree {
         return isBinarySearchTreeBounds(node, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    private static boolean isBinarySearchTreeBounds(BinaryTreeNode root, int lowerBound, int upperBound) {
-        if (root == null) {
+    private static boolean isBinarySearchTreeBounds(BinaryTreeNode node, int lowerBound, int upperBound) {
+        if (node == null) {
             return true;
         }
 
-        if (root.value >= upperBound || root.value <= lowerBound) {
+        if (node.value >= upperBound || node.value <= lowerBound) {
             return false;
         }
 
-        return isBinarySearchTreeBounds(root.left, lowerBound, root.value)
-                && isBinarySearchTreeBounds(root.right, root.value, upperBound);
+        return isBinarySearchTreeBounds(node.left, lowerBound, node.value)
+                && isBinarySearchTreeBounds(node.right, node.value, upperBound);
     }
 
     public static boolean isBinarySearchTreeStackUsingBounds(BinaryTreeNode root) {
