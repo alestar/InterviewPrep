@@ -40,7 +40,15 @@ public class FindPairsWithGivenDiff {
             result[index] = item;
             index++;
         }
-        System.out.println("Created array " + Arrays.deepToString(result));
         return result;
+    }
+
+    public static void main(String[] args) {
+        int [] arr = {1,2,4,5,8,9,10};
+        System.out.println("Results 'k=5': " + Arrays.deepToString(findPairsWithGivenDifference(arr,5)));
+        System.out.println("Results 'k=2': " + Arrays.deepToString(findPairsWithGivenDifference(arr,2)));
+        System.out.println("Results 'k=1': " + Arrays.deepToString(findPairsWithGivenDifference(arr,1)));
+        System.out.println("Results 'k=3': " + Arrays.deepToString(findPairsWithGivenDifference(arr,3)));
+        System.out.println("Results 'k=0': " + Arrays.deepToString(findPairsWithGivenDifference(arr,0)));
     }
 }

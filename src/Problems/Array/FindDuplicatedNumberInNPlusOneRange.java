@@ -63,7 +63,8 @@ public class FindDuplicatedNumberInNPlusOneRange {
 
     /**
      * Another less Naive but straight forward Solution is to sort the array.
-     * Which it's runtime complexity is O(n logn); but is not O(n).
+     * This'll keep us at O(1)space and bring us down to O(n\lg{n}) time.     *
+     * But destroying the input is kind of a drag—it might cause problems elsewhere in our code. Can we maintain this time and space cost without destroying the input?
      */
     public static int findUsingSort(int[] nums){
        Arrays.sort(nums);
@@ -83,6 +84,7 @@ public class FindDuplicatedNumberInNPlusOneRange {
      * This is another similar runtime complexity solution is.
      * The space complexity is O(1) because no additional data structures is being used, only pointers.
      * However runtime complexity is O(n logn). We are splitting the search in half every time.
+     * Our approach is similar to a binary search, except we divide the range of possible answers in half at each step, rather than dividing the array in half.
      */
     public static int findUsingBinarySearch(int[] nums) {
 
@@ -239,8 +241,8 @@ public class FindDuplicatedNumberInNPlusOneRange {
 
     public static void main(String[] args) {
         int[] nums= {6,6,7,8,9,10,1,2,3,4,5};
-        int[] nums1= {2,2,1,3,2,5,6};
-        int[] nums2= {6,4,1,1,2,1,1};
+        int[] nums1= {6,5,1,3,2,2,2};
+        int[] nums2= {6,4,1,1,2,2,1};
 
       /*  findNaive(nums);
         findNaive(nums1);
