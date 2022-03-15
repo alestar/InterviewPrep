@@ -16,7 +16,7 @@ class Solution:
             items_in_lower_range = 0
             for item in numbers:
                 # Is it in the lower range?
-                if item >= lower_range_floor and item <= lower_range_ceiling:
+                if lower_range_floor <= item <= lower_range_ceiling:
                     items_in_lower_range += 1
 
             distinct_possible_integers_in_lower_range = (
