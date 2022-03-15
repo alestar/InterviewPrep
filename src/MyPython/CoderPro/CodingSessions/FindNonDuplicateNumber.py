@@ -21,4 +21,9 @@ class Solution(object):
 
 print(Solution().single_number_dic([4, 3, 2, 4, 1, 3, 2]))
 print(Solution().single_number_xor([4, 3, 2, 4, 1, 3, 2]))
-# 1
+print(Solution().single_number_xor([2, 2, 2, 2, 1, 2, 2]))
+print(Solution().single_number_xor([2, 2, 2, 2, 2, 2, 1]))
+print(Solution().single_number_xor([0, 0, 0, 0, 1, 0, 0]))
+print(Solution().single_number_xor([0, 0, 0, 0, 1, 1, 0]))
+print(Solution().single_number_xor([2, 2, 2, 2, 2, 2, 2]))
+print(Solution().single_number_xor([2, 2, 2, 2, 2, 2]))
