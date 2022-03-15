@@ -34,10 +34,9 @@ def sort_num_using_pointers(nums, low, mid, high):
 			curr_idx += 1
 
 		# If it is a high number, it will be sorted to the end of the array
-		# swap curr_idx value with high_idx
-		# and only decrease high_idx, since a high number was sorted to the end of the array
-		# curr_idx wont be incremented
-		# because the number that just got swapped from the end has not being inspected yet
+		# swap curr_idx value with high_idx and only decrease high_idx,
+		# since a high number was sorted to the end of the array curr_idx wont be incremented,
+		# because the number that just got swapped from the end to the front, has not being inspected yet
 		elif nums[curr_idx] == high:
 			nums[curr_idx], nums[high_idx] = nums[high_idx], nums[curr_idx]
 			high_idx -= 1
