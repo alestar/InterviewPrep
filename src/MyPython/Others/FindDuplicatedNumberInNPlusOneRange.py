@@ -37,11 +37,12 @@ class Solution:
         # We found a number that repeats!
         return floor
 
-arr = [6,6,7,8,9,10,1,2,3,4,5]
-arr1 = [6,5,1,3,2,2,2]
-arr2 = [6,4,1,1,2,2,1]
 
-print(Solution().find_repeat(arr))
+arr0 = [6, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5]
+arr1 = [6, 5, 1, 3, 2, 2, 2]
+arr2 = [6, 4, 1, 1, 2, 2, 1]
+
+print(Solution().find_repeat(arr0))
 # 6
 print(Solution().find_repeat(arr1))
 # 2
