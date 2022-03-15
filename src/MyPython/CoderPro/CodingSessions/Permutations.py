@@ -67,20 +67,20 @@ class Solution(object):
         print("Final result (for this recur): " + str(result))
         return result
 
-    def permute(self, nums):
+    def permute_recur(self, nums):
         return self._permuteHelper(nums)
 
-    def permute2(self, nums, values=[]):
+    def permute_recur2(self, nums, values=[]):
         if not nums:
             return [values]
         result = []
         for i in range(len(nums)):
             # Continue recur with the rest of the number but excluding the current number in use,
             # Also insert the current ith number to the to permuted values that we are constructing
-            result += self.permute2(nums[:i] + nums[i+1:], values + [nums[i]])
+            result += self.permute_recur2(nums[:i] + nums[i + 1:], values + [nums[i]])
         return result
 
-    def permute3_iterative(self, nums):
+    def permute_iter(self, nums):
         results = []
         stack = [(nums, [])]
         while len(stack):
@@ -92,11 +92,32 @@ class Solution(object):
         return results
 
 
-Solution().permute([1, 2, 3])
+Solution().permute_recur([1, 2, 3])
 # [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
 
-# print(Solution().permute2([1, 2, 3]))
-# # [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
-#
-# print(Solution().permute3_iterative([1, 2, 3]))
-# # [[3, 2, 1], [3, 1, 2], [2, 3, 1], [2, 1, 3], [1, 3, 2], [1, 2, 3]]
+print(Solution().permute_recur2([1, 2, 3]))
+# [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
+# i = 0
+# nums [1, 2, 3]
+# (i = 0)                     0   1 (i = 1)
+# values[1] ,  nums [2,3] -> [2] [3] ,
+# values[1,2], nums [3]   -> values[1, 3], nums[2]
+# values[1, 2, 3], nums[] -> values [1, 3, 2],
+
+# i = 1
+# nums [1, 2, 3]
+# (i = 0)                     0   1 (i = 1)
+# values[2] ,  nums [1,3] -> [1] [3] ,
+# values[2,1], nums [3]   -> values[2, 3], nums[1]
+# values[2, 1, 3], nums[] -> values [2, 3, 1],
+
+# i = 2
+# nums [1, 2, 3]
+# (i = 0)                     0   1 (i = 1)
+# values[3] ,  nums [1,2] -> [1] [2] ,
+# values[3,1], nums [2]   -> values[3, 2], nums[1]
+# values[3, 1, 2], nums[] -> values [3, 2, 1],
+
+
+print(Solution().permute_iter([1, 2, 3]))
+# [[3, 2, 1], [3, 1, 2], [2, 3, 1], [2, 1, 3], [1, 3, 2], [1, 2, 3]]
