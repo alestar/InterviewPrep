@@ -35,6 +35,10 @@ class Solution:
 	# Then, that element (and elements before it) should not be included and discard the subset (to that point) completely, from the subarray.
 
 	def max_sub_array_sum(self, nums):
+
+		if not nums:
+			return 0
+
 		max_sum = 0
 		curr_sum = 0
 		for n in nums:
