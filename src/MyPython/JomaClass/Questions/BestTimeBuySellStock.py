@@ -33,7 +33,7 @@ def buy_and_sell_brute(arr):
 
 
 # O(n)
-def buy_and_sell_iter(arr):
+def buy_and_sell_iter_reverse(arr):
 	max_current_price = 0
 	max_profit = 0
 
@@ -47,5 +47,21 @@ def buy_and_sell_iter(arr):
 	return max_profit
 
 
+def buy_and_sell_iter(prices):
+	if not prices:
+		return 0
+
+	max_profit = 0
+	min_price = prices[0]
+
+	for p in prices:
+		if min_price > p:
+			min_price = p
+		max_profit = max(max_profit, p - min_price)
+	return max_profit
+
+
 print(buy_and_sell_brute([9, 11, 8, 5, 7, 10]))  # 5
+print(buy_and_sell_iter_reverse([9, 11, 8, 5, 7, 10]))  # 5
 print(buy_and_sell_iter([9, 11, 8, 5, 7, 10]))  # 5
+
