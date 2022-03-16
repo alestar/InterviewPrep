@@ -43,7 +43,8 @@ def buy_and_sell_iter_reverse(arr):
 	# Update the max current profit by comparing the max current profit so far, with current profit
 	for price in arr[::-1]:
 		max_current_price = max(max_current_price, price)
-		max_profit = max(max_profit, max_current_price - price)
+		curr_profit = max_current_price - price
+		max_profit = max(max_profit, curr_profit)
 	return max_profit
 
 
@@ -54,10 +55,11 @@ def buy_and_sell_iter(prices):
 	max_profit = 0
 	min_price = prices[0]
 
-	for p in prices:
-		if min_price > p:
-			min_price = p
-		max_profit = max(max_profit, p - min_price)
+	for price in prices:
+		if min_price > price:
+			min_price = price
+		curr_profit = price - min_price
+		max_profit = max(max_profit, curr_profit)
 	return max_profit
 
 
