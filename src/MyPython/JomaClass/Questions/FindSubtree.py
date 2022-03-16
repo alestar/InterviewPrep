@@ -13,14 +13,14 @@ class Node:
 		self.right = right
 
 
-def pre(n):
+def pre_order_serialize(n):
 	if not n:
 		return 'null'
-	return '-' + str(n.value) + '-' + pre(n.left) + '-' + pre(n.right)
+	return '-' + str(n.value) + '-' + pre_order_serialize(n.left) + '-' + pre_order_serialize(n.right)
 
 
 def find_subtree(a, b):
-	return pre(b) in pre(a)
+	return pre_order_serialize(b) in pre_order_serialize(a)
 
 
 def find_subtree2(a, b):
