@@ -20,7 +20,7 @@ Constraints:
 from functools import cmp_to_key
 
 
-def largestNum(nums):
+def largest_num(nums):
 	sorted_nums = sorted(nums, key=cmp_to_key(
 		lambda a, b:
 		1 if str(a) + str(b) < str(b) + str(a)
@@ -29,5 +29,17 @@ def largestNum(nums):
 	return ''.join(str(n) for n in sorted_nums)
 
 
-print(largestNum([17, 7, 2, 45, 72]))
+def largest_num_compare(nums):
+	def compare (a, b):
+		if str(a) + str(b) < str(b) + str(a):
+			return 1
+		else:
+			return -1
+
+	str_nums = [str(n) for n in sorted(nums, key = cmp_to_key(compare))]
+	return ''.join(str_nums)
+
+
+print(largest_num([17, 7, 2, 45, 72]))
+print(largest_num_compare([17, 7, 2, 45, 72]))
 # 77245217
