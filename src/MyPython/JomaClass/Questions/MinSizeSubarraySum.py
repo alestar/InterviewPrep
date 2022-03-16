@@ -27,24 +27,37 @@ Follow up: If you have figured out the O(n) solution, try coding another solutio
 
 
 class Solution(object):
-	def minSubArray(self, k, nums):
+	def min_sub_array(self, k, nums):
 		left_idx = right_idx = 0
 		curr_sum = 0
 		min_len = float('inf')
 
+		# Iterate from the right_idx to the end of the array (since all combination must be check)
+		# and determine which index has to move to the right
+		# depending if the curr_sum is bigger or smallest than the target sum k.
+		# This is call as a sliding window mechanism (opening-closing the window)
 		while right_idx < len(nums):
+
+			# Add elements to the curr_sum
 			curr_sum += nums[right_idx]
+
+			# When at some point the curr_sum becomes bigger than the target sum
+			# Then proceed to move the left index and exclude left elements (closing the windows)
+			# until curr_sum becomes less or equal target sum
 			while curr_sum >= k:
 				min_len = min(min_len, right_idx - left_idx + 1)
 				curr_sum -= nums[left_idx]
 				left_idx += 1
+
+			# Otherwise continue moving the right_idx to the right (opening the window)
 			right_idx += 1
 
+		# If the value of min_len was not altered, error out
 		if min_len == float('inf'):
 			return 0
 		return min_len
 
 
-print(Solution().minSubArray(7, [2, 3, 1, 2, 4, 3]))  # 2
+print(Solution().min_sub_array(7, [2, 3, 1, 2, 4, 3]))  # 2
 
 
