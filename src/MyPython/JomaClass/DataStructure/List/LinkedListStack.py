@@ -1,4 +1,4 @@
-from JomaClass.DataStructure.List.LinkedListNode import LinkedListNode
+from MyPython.JomaClass.DataStructure.List.LinkedListNode import LinkedListNode
 
 
 class LinkedListStack:
