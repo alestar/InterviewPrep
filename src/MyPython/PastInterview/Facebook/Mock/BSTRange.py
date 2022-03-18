@@ -76,19 +76,29 @@ def sum_val_in_range2(curr, low, high):
 
 	left = curr.left
 	if left is not None:
-		if left.value >= low:  # If there is a left node and is bigger/equal than lower bound of the range
-			addition += sum_val_in_range2(left, low, high)  # Continue exploring from the left sub tree, and add the result
-		else:  # However, if the left node is smaller than lower bound
-			addition += sum_val_in_range2(left.right, low, high)  # Attempt to explore from the right subtree of the left node
+		# If there is a left node and is bigger/equal than lower bound of the range
+		if left.value >= low:
+
+			# Continue exploring from the left sub tree, and add the result
+			addition += sum_val_in_range2(left, low, high)
+		# However, if the left node is smaller than lower bound
+		else:
+			# Attempt to explore from the right subtree of the left node
+			addition += sum_val_in_range2(left.right, low, high)
 		# Since, it is only in the right subtree that could be elements (if they exist) in the range at this point
 		# Because the left of the left (if exist) is guarantee, to be smaller that lower bound of the range.
 
 	right = curr.right
 	if right is not None:
-		if right.value <= high:  # If there is a right node and is smaller/equal than upper bound of the range
-			addition += sum_val_in_range2(right, low, high)  # Continue continue exploring from the right sub tree, and add it
-		else:  # However, if the right node is bigger than upper bound
-			addition += sum_val_in_range2(right.left, low, high)  # Attempt to explore the left subtree of the right node
+		# If there is a right node and is smaller/equal than upper bound of the range
+		if right.value <= high:
+
+			# Continue continue exploring from the right sub tree, and add it
+			addition += sum_val_in_range2(right, low, high)
+			# However, if the right node is bigger than upper bound
+		else:
+			# Attempt to explore the left subtree of the right node
+			addition += sum_val_in_range2(right.left, low, high)
 			# Since, it is only in the left subtree that could be elements (if they exist) in the range at this point
 			# Because the right of the right (if exist) is guarantee, to be bigger than upper bound of the range.
 	return addition
