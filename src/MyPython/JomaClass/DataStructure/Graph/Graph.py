@@ -1,6 +1,5 @@
-from JomaClass.DataStructure.List.LinkedListStack import LinkedListStack
-from JomaClass.DataStructure.Queue.LinkedListQueue import LinkedListQueue
-
+from MyPython.JomaClass.DataStructure.List.LinkedListStack import LinkedListStack
+from MyPython.JomaClass.DataStructure.Queue.LinkedListQueue import LinkedListQueue
 
 
 class GraphVertex:
