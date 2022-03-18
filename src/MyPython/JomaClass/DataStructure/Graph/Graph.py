@@ -53,9 +53,12 @@ class Graph:
 
 def bfs_traverse(start):
 	print("Traversing BFS inter")
-	explore = LinkedListQueue()  # Use a Queue for vertex that has not been visited yet and are pending to explore
+	# Use a Queue for vertex that has not been visited yet and are pending to explore
+	explore = LinkedListQueue()
 	explore.enqueue(start)
-	visited = {start.val: start}  # Use a Dictionary/Hash table to avoid revisiting neighbors (avoid g loop)
+
+	# Use a Dictionary/Hash table to avoid revisiting neighbors (avoid g loop)
+	visited = {start.val: start}
 	while not explore.is_empty():
 		v = explore.dequeue()
 		print("Looking at: " + str(v.val))
@@ -70,8 +73,8 @@ def dfs_traverse_iterative(start):
 	explore = LinkedListStack()
 	explore.push(start)
 
-
-	visited = {start.val: start}  # Discovered Dictionary to avoid graph node cycles
+	# Discovered Dictionary to avoid graph node cycles
+	visited = {start.val: start}
 	while not explore.is_empty():
 		v = explore.pop()
 		print("Looking at: " + str(v.val))
@@ -81,9 +84,11 @@ def dfs_traverse_iterative(start):
 				explore.push(neighbor)
 				visited[neighbor.val] = neighbor
 
+
 def dfs_traverse_recur(vertex): # Use the Function Call Stack instead of creating a new object
 	print("Traversing DFS recur: ")
 	dfs_traverse_recur_helper(vertex, {})
+
 
 def dfs_traverse_recur_helper(vertex, discovered): # Use the Function Call Stack instead of creating a new object
 	print("Looking at: " + str(vertex.val))
@@ -99,6 +104,7 @@ def dfs_traverse_recur_helper(vertex, discovered): # Use the Function Call Stack
 #     1 - 4
 #    / \ /
 #   2 - 3
+
 
 # Driver program to the above graph class
 if __name__ == "__main__":
