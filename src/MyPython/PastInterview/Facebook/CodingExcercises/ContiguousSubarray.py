@@ -150,6 +150,7 @@ def count_subarrays(arr):
 def printInteger(n):
 	print('[', n, ']', sep='', end='')
 
+
 def printIntegerList(array):
 	size = len(array)
 	print('[', end='')
@@ -159,7 +160,9 @@ def printIntegerList(array):
 		print(array[i], end='')
 	print(']', end='')
 
+
 test_case_number = 1
+
 
 def check(expected, output):
 	global test_case_number
@@ -181,6 +184,7 @@ def check(expected, output):
 		printIntegerList(output)
 		print()
 	test_case_number += 1
+
 
 if __name__ == "__main__":
 	test_1 = [3, 4, 1, 6, 2]
