@@ -55,33 +55,37 @@ def bfs_traverse(start):
 	# Use a Queue for vertex that has not been visited yet and are pending to explore
 	explore = LinkedListQueue()
 	explore.enqueue(start)
+	res = []
 
 	# Use a Dictionary/Hash table to avoid revisiting neighbors (avoid g loop)
 	visited = {start.val: start}
 	while not explore.is_empty():
 		v = explore.dequeue()
-		print("Looking at: " + str(v.val))
+		# print("Looking at: " + str(v.val))
+		res.append(v.val)
 		for neighbor in v.edges.values():
 			if neighbor.val not in visited:
 				visited[neighbor.val] = neighbor
 				explore.enqueue(neighbor)
-
+	return res
 
 def dfs_traverse_iterative(start):
 	print("Traversing DFS inter: ")
 	explore = LinkedListStack()
 	explore.push(start)
+	res = []
 
 	# Discovered Dictionary to avoid graph node cycles
 	visited = {start.val: start}
 	while not explore.is_empty():
 		v = explore.pop()
-		print("Looking at: " + str(v.val))
-
+		res.append(v.val)
+		# print("Looking at: " + str(v.val))
 		for neighbor in reversed(v.edges.values()):
 			if neighbor.val not in visited:
 				explore.push(neighbor)
 				visited[neighbor.val] = neighbor
+	return res
 
 
 def dfs_traverse_recur(vertex): # Use the Function Call Stack instead of creating a new object
@@ -116,8 +120,8 @@ if __name__ == "__main__":
 	graph.add_edge(2, 3)
 	graph.add_edge(3, 4)
 	graph.print_graph()
-	bfs_traverse(graph.vertices[0])
+	print(bfs_traverse(graph.vertices[0]))
 	dfs_traverse_recur(graph.vertices[0])
-	dfs_traverse_iterative(graph.vertices[0])
+	print(dfs_traverse_iterative(graph.vertices[0]))
 
 
