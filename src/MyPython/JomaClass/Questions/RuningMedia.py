@@ -14,14 +14,28 @@ For example, for arr = [2,3,4], the median is 3.
 For example, for arr = [2,3], the median is (2 + 3) / 2 = 2.5
 
 [2, 1, 4, 7, 2, 0, 5]
-max_heap  <= median <= min_heap
+max_heap (small elements) = <= median <= min_heap (bigger elements)
+
+Looking at '2':
+	2     -> median = 2 ( is 2 because it is the first and only element)
+
+Looking at '1':
+	2     -> median = 2 ( reamins 2 because is the max of small values)
+    \
+     1
+
+Looking at '4':
+	2       4  -> median = 2 (return max of left side because it has more element than the right)
+    \
+     1
 
 Looking at '7':
 	2    2    4  -> median = 2 + 4/2 = 3.0
     \        /
      1      7
+
 Looking at '2':
-  	2   3.0   2  -> median = 2 (return min of right side because it has more elements)
+  	2   3.0   2  -> median = 2 (return min of right side because it has more element than the left)
     \        / \
      1      7   4
 
@@ -31,7 +45,7 @@ Looking at '0':
   0   1     7   4
 
 Looking at '5':
-    2    2    2  -> median = 2 (return min of right side because it has one more elements)
+    2    2    2  -> median = 2 (return min of right side because it has one more element than the left)
    / \       / \
   0   1     5   4
 		   /
@@ -114,7 +128,7 @@ def obtain_median(min_heap, max_heap):
 stream1 = [2, 1, 4, 7, 2, 0, 5]
 stream2 = [2, 1, 4, 5, 3, 0, 5]
 print("Running media of stream1: " + str(stream1))
-print(running_median(stream1))  # [2, 2, 2, 3.0, 3, 3, 3]
+print(running_median(stream1))  # [2, 2, 2, 3.0, 2, 2, 2]
 print("Running media of stream2: " + str(stream2))
 print(running_median(stream2))  # [2, 2, 2, 3.0, 3, 3, 3]
 
