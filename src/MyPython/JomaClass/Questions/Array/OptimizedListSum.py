@@ -3,7 +3,7 @@ Optimized List Sum
 
 Create a class that initializes with a list of numbers and has one method called sum.
 
-sum() should only take two parameters, start and end and return the sum of hte list from start (inclusive) to end (exclusive).
+sum() should only take two parameters, start and end and return the sum of the list from start (inclusive) to end (exclusive).
 
 """
 
@@ -32,10 +32,10 @@ class ListFastSum2(object):
 	def __init__(self, nums):
 		self.pre = [0]
 
-		sum = 0
+		curr_sum = 0
 		for num in nums:
-			sum += num
-			self.pre.append(sum)
+			curr_sum += num
+			self.pre.append(curr_sum)
 		print(self.pre)
 
 	def sum(self, start, end):

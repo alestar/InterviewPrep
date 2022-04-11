@@ -30,13 +30,13 @@ def largest_num(nums):
 
 
 def largest_num_compare(nums):
-	def compare (a, b):
+	def compare(a, b):
 		if str(a) + str(b) < str(b) + str(a):
 			return 1
 		else:
 			return -1
 
-	str_nums = [str(n) for n in sorted(nums, key = cmp_to_key(compare))]
+	str_nums = [str(n) for n in sorted(nums, key=cmp_to_key(compare))]
 	return ''.join(str_nums)
 
 

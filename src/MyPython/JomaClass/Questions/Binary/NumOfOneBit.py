@@ -5,6 +5,7 @@ Given an integer, find numbers of 1 bits it has.
 
 """
 
+
 def one_bits(n):
 	count = 0
 	while n > 0:
@@ -18,4 +19,4 @@ def one_bits(n):
 	return count
 
 
-print(one_bits(23))  # 23 is represented as 0b10111
+print(one_bits(23))  # 23 is represented as 0b10111 - > 4# Num of 1 bit

@@ -38,11 +38,11 @@ class Node(object):
 
 
 class Solution:
-    def addTwoNumbers(self, lst1, lst2):
-        return self.addTwoNumbersRecursive(lst1, lst2, 0)
+    def add_two_numbers(self, lst1, lst2):
+        return self.add_two_numbers_recur(lst1, lst2, 0)
         # return self.addTwoNumbersIterative(l1, l2)
 
-    def addTwoNumbersRecursive(self, lst1, lst2, carry_over):
+    def add_two_numbers_recur(self, lst1, lst2, carry_over):
         # Calculate Value
         val = lst1.val + lst2.val + carry_over
 
@@ -59,7 +59,7 @@ class Solution:
                 lst1.next = Node(0)
             if not lst2.next:
                 lst2.next = Node(0)
-            ret.next = self.addTwoNumbersRecursive(lst1.next, lst2.next, carry_over)
+            ret.next = self.add_two_numbers_recur(lst1.next, lst2.next, carry_over)
 
         # Otherwise, check if there is any carry_over from the last operation that needs to be included
         # If so, add the carry_over as a new node
@@ -67,7 +67,7 @@ class Solution:
             ret.next = Node(carry_over)
         return ret
 
-    def addTwoNumbersIterative(self, lst1, lst2):
+    def add_two_numbers_iterative(self, lst1, lst2):
         a = lst1
         b = lst2
         c = 0
@@ -102,7 +102,7 @@ l2 = Node(5)
 l2.next = Node(6)
 l2.next.next = Node(4)
 
-answer = Solution().addTwoNumbers(l1, l2)
+answer = Solution().add_two_numbers(l1, l2)
 line = ""
 while answer:
     link = ''

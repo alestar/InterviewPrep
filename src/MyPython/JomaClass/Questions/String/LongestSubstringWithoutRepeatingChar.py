@@ -23,7 +23,7 @@ s consists of English letters, digits, symbols and spaces.
 """
 
 
-def lengthOfLongestSubstring(str):
+def length_longest_substring(str):
 	letter_pos = {}
 	start = -1
 	end = 0
@@ -59,4 +59,4 @@ def lengthOfLongestSubstring(str):
 	return max_length
 
 
-print(lengthOfLongestSubstring('aabcbbeacc'))
+print(length_longest_substring('aabcbbeacc'))

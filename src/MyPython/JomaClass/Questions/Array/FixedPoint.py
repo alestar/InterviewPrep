@@ -48,7 +48,7 @@ def find_fixed_point_iter(nums):
 	low = 0
 	high = len(nums)
 
-	while (low != high):
+	while low != high:
 		mid = int((low + high) / 2)
 		if nums[mid] == mid:
 			return mid
