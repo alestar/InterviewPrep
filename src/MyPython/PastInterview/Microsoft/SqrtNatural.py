@@ -1,4 +1,7 @@
 """
+
+Square Root of Natural Number
+
 As the title says, we need to find the square root of a number. Let say the number is x, then Sqrt(x) is a number such that Sqrt(x) * Sqrt(x) = x.
 If the square root of a number is some decimal value, then we have to return the floor value of the square root.
 
