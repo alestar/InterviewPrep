@@ -33,6 +33,7 @@ public class CreateArrayFromBTOverride {
         public BinaryTreeNode(int value) {
             this.value = value;
         }
+
         @Override
         public String toString() {
             return "N{" + value + "}";
@@ -83,9 +84,9 @@ public class CreateArrayFromBTOverride {
         i++;
 
         if(node.left != null)
-            traverseAddArr(node.left,arr,i);  //Traverse tu left sub-tree
+            traverseAddArr(node.left,arr,i);  //Traverse to left sub-tree
         if(node.right != null)
-            traverseAddArr(node.right,arr,i);//Traverse tu right sub-tree
+            traverseAddArr(node.right,arr,i); //Traverse to right sub-tree
 
 
     }

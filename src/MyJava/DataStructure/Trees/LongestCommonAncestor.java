@@ -41,7 +41,7 @@ public class LongestCommonAncestor {
     /** A function for creating a tree.
     Input:
         - mapping: a node-to-node mapping that shows how the tree should be constructed
-        - headValue: the value that will be used for the head ndoe
+        - headValue: the value that will be used for the head node
     Output:
         - The head node of the resulting tree
      */
@@ -86,26 +86,26 @@ public class LongestCommonAncestor {
         return lcaToReturn;
     }
 
-    public static Stack<TreeNode> pathToX(TreeNode root, int x) {
-        if (root == null) {
+    public static Stack<TreeNode> pathToX(TreeNode node, int x) {
+        if (node == null) {
             return null;
         }
 
-        if (root.value == x) {
+        if (node.value == x) {
             Stack<TreeNode> path = new Stack<TreeNode>();
-            path.push(root);
+            path.push(node);
             return path;
         }
 
-        Stack<TreeNode> leftPath = pathToX(root.left, x);
+        Stack<TreeNode> leftPath = pathToX(node.left, x);
         if (leftPath != null) {
-            leftPath.push(root);
+            leftPath.push(node);
             return leftPath;
         }
 
-        Stack<TreeNode> rightPath = pathToX(root.right, x);
+        Stack<TreeNode> rightPath = pathToX(node.right, x);
         if (rightPath != null) {
-            rightPath.push(root);
+            rightPath.push(node);
             return rightPath;
         }
 

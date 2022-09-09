@@ -10,7 +10,7 @@ public class MinHeap {
 
     private int getLeftChildIndex(int parentIndex) {return 2 * parentIndex +1 ;}
     private int getRightChildIndex(int parentIndex) {return 2 * parentIndex + 2 ;}
-    private int getParentIndex(int childIncex) {return (childIncex - 1)/2 ;}
+    private int getParentIndex(int childIndex) {return (childIndex - 1)/2 ;}
 
     private boolean hasLeftChild (int index) { return getLeftChildIndex(index) < size; }
     private boolean hasRightChild (int index) { return getRightChildIndex(index) < size; }
@@ -56,8 +56,8 @@ public class MinHeap {
     }
 
     private void adjustHeapUp() {//heapifyUp()
-    int index =size -1;
-        while (hasParent(index)&& parent(index) > items[index]) {// Parents CAN NOT be bigger than childs in a minHeap, this mean out of order
+    int index = size -1;
+        while (hasParent(index) && parent(index) > items[index]) {// Parents CAN NOT be bigger than children in a minHeap, this mean out of order
                 swap(getParentIndex(index),index);
                 index = getParentIndex(index);
         }
@@ -68,11 +68,11 @@ public class MinHeap {
         int smallerChildIndex = -1;
         while(hasLeftChild(currIndex)){// If there is NO left child, then certainly there is No right child
             smallerChildIndex= getLeftChildIndex(currIndex);
-            if(hasRightChild(currIndex) && rightChild(currIndex)< leftChild(currIndex)){
+            if(hasRightChild(currIndex) && rightChild(currIndex) < leftChild(currIndex)){
                 smallerChildIndex = getRightChildIndex(currIndex);
             }
 
-            if(items[currIndex] <items[smallerChildIndex]){
+            if(items[currIndex] < items[smallerChildIndex]){
                 break;
             }
             else{

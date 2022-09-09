@@ -1,14 +1,12 @@
 package MyJava.DataStructure.LinkedList;
 
-import java.util.LinkedList;
-
 public class AddTwoNumLinkedList {
 
     public static LinkedListNodeGeneric<Integer> addTwoNumbersLinked(LinkedListNodeGeneric<Integer> l1, LinkedListNodeGeneric<Integer> l2){
-        return addTwoNumbersLinkedListRecurv(l1,l2,0);
+        return addTwoNumbersLinkedListRecur(l1,l2,0);
     }
 
-    public static LinkedListNodeGeneric<Integer> addTwoNumbersLinkedListRecurv(LinkedListNodeGeneric<Integer> l1,LinkedListNodeGeneric<Integer> l2, int c){
+    public static LinkedListNodeGeneric<Integer> addTwoNumbersLinkedListRecur(LinkedListNodeGeneric<Integer> l1, LinkedListNodeGeneric<Integer> l2, int c){
         //Calculate value to add to the current node
         int val =  l1.getData() + l2.getData() + c;
         c = val / 10; // Dividing by '10' will retrieve the result of the div and will only be = 1 when val >= 10, because 10 fit only '1' time inside 'val', therefore that value 'c' = '1' should be carry over to the next sum of digits, otherwise 'c' = '0'
@@ -21,7 +19,7 @@ public class AddTwoNumLinkedList {
                 l1.setNext(new LinkedListNodeGeneric(0)); //Add a '0' to the sum to consider the other number when adding diff length numbers
             if(!l2.hasNext())//If there are no more nodes to keep adding for one of the numb list
                 l2.setNext(new LinkedListNodeGeneric(0)); //Add a '0' to the sum to consider the other number when adding diff length numbers
-            res.setNext(addTwoNumbersLinkedListRecurv(l1.getNext(),l2.getNext(),c)); //Proceed to add the next number with the carry over
+            res.setNext(addTwoNumbersLinkedListRecur(l1.getNext(),l2.getNext(),c)); //Proceed to add the next number with the carry over
         }
         else if (c >0)//If there are no more numbers to add, conditionally add the carry over 'c' if > 0
             res.setNext( new LinkedListNodeGeneric(c));

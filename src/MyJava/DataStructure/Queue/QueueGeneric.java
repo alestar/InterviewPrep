@@ -15,9 +15,11 @@ public class QueueGeneric<T> {
     public boolean isEmpty(){
         return head == null;
     }
+
     public T peek(){
         return head.data;
     }
+
     public void add(T data){
         Node node = new Node(data);
         if(tail!=null){

@@ -19,9 +19,9 @@ public class DoubleLinkedListGeneric<T> {
 
     public void push(T data) {
         Node node = new Node(data);
-        node.next=head.next;
-        node.prev=head;
-        head= node;
+        node.next = head.next;
+        node.prev = head;
+        head = node;
 
     }
 

@@ -62,7 +62,8 @@ def min_square_sums_counts(num):
 
 				# Determine ways to create a number (i + s) by using:
 				# - existing/curr num of ways to create number (i + s) -> calculated from prev iterations
-				# - new ways to create number (i + s), from num of prev ways at [i] and adding/selecting one of the choices (i.e 1, 4 or 9)
+				# - new ways to create number (i + s), from num of prev ways at [i]
+				# and adding/selecting one of the choices (i.e 1, 4 or 9)
 				addends_count_to_create_num_at_target = min_addends_count_to_create_num_arr[num_to_create]
 				addends_count_to_create_num_from_idx = min_addends_count_to_create_num_arr[i] + 1
 				min_addends_count = min(addends_count_to_create_num_at_target, addends_count_to_create_num_from_idx)

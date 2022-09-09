@@ -64,7 +64,7 @@ public class KthToLastNodeInSinglyLinkedList {
         }
 
         // since leftNode is k nodes behind rightNode,
-        // leftNode is now the kth to getLast node!
+        // leftNode is now the at kth node from the last one of the list!
         return leftNode;
     }
     public static void main(String[] args) {

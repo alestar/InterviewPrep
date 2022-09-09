@@ -18,7 +18,7 @@ public class QueueWithTwoStacksGeneric<T> {
         return stackOldestOnTop.peek();
     }
     public T dequeue() {// Get "oldest" item, meaning items at the beginning of the QueueGeneric
-    //MOve elements froms tackNewest to stackOldest
+    //Move elements froms tackNewest to stackOldest
         shiftStacks();
         return stackOldestOnTop.pop();
 

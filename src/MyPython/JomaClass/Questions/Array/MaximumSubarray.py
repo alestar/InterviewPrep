@@ -28,13 +28,15 @@ Follow up: If you have figured out the O(n) solution, try coding another solutio
 class Solution:
 
 	# Since not all the numbers in the array are positive,
-	# the max sum possible value for a contiguous subarray could vary by including (adding or subtracting to the curr_sum) or excluding elements.
+	# the max sum possible value for a contiguous subarray could vary by including (adding or subtracting to the curr_sum)
+	# or excluding elements.
 
 	# So, it is important to keep the state of the max_sum seen so far,
 	# When determining if including or not a new element into the subarray,  will increase or decrease the max_sum.
 
 	# Moreover, if including an element decrease the sum to that point to a value < 0
-	# Then, that element (and elements before it) should not be included and discard the subset (to that point) completely, from the subarray.
+	# Then, that element (and elements before it) should not be included and discard the subset (to that point) completely,
+	# from the subarray.
 
 	def max_sub_array_sum(self, nums):
 

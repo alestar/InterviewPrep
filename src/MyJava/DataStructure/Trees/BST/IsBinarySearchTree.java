@@ -74,7 +74,7 @@ public class IsBinarySearchTree {
         }
     }
 
-    public static boolean isBinarySearchTreeRecv(BinaryTreeNode node) {
+    public static boolean isBinarySearchTreeRecur(BinaryTreeNode node) {
 
         if(node == null || (node.left == null && node.right == null))
             return true;
@@ -82,10 +82,10 @@ public class IsBinarySearchTree {
         if(node.value <= node.left.value || node.value >= node.right.value)
             return false;
 
-        return isBinarySearchTreeRecv(node.left) && isBinarySearchTreeRecv(node.right);
+        return isBinarySearchTreeRecur(node.left) && isBinarySearchTreeRecur(node.right);
     }
 
-    public static boolean isBinarySearchTreeRecvUsingBounds(BinaryTreeNode node) {
+    public static boolean isBinarySearchTreeRecurUsingBounds(BinaryTreeNode node) {
 
         return isBinarySearchTreeBounds(node, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
@@ -162,8 +162,8 @@ public class IsBinarySearchTree {
         System.out.println(" The Balanced Binary Tree 'In-Order' ");
         bt.printInorder(bt.root, "Root: ");
 
-        boolean resultRecv = bt.isBinarySearchTreeRecv(bt.root);
-        boolean resultRecvBounds = isBinarySearchTreeRecvUsingBounds(bt.root);
+        boolean resultRecv = bt.isBinarySearchTreeRecur(bt.root);
+        boolean resultRecvBounds = isBinarySearchTreeRecurUsingBounds(bt.root);
         boolean resultStack = bt.isBinarySearchTreeStackUsingBounds(bt.root);
 
         System.out.println(" Is it a Binary Search  Tree (Recursively) ? : " +  resultRecv);

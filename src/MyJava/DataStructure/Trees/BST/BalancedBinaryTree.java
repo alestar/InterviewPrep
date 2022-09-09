@@ -135,7 +135,7 @@ public class BalancedBinaryTree {
 
     public boolean isBalanced(BinaryTreeNode treeRoot) {
         System.out.println("Determine if tree is balance?" );
-        // a tree with no nodes is superbalanced, since there are no leaves!
+        // a tree with no nodes is super balanced, since there are no leaves!
         if (treeRoot == null) {
             return true;
         }

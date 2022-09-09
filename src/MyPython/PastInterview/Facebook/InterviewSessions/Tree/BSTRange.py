@@ -10,6 +10,8 @@ inclusive.
 #  /
 # 2
 
+* Note: the interval element does not have to be in the tree
+
 Input: [3, 10] => 42
 Input: [2, 5] => 14
 Input: [8, 9] => 17

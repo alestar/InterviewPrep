@@ -14,14 +14,17 @@ public class StackGeneric<T> {
     public boolean isEmpty(){
         return top == null;
     }
+
     public T peek(){
         return top.data;
     }
+
     public void push(T data){
         Node node = new Node(data);
         node.next=top;
         top=node;
     }
+
     public T pop(){
         T data= top.data;
         top = top.next;
