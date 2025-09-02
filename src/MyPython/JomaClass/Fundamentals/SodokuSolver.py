@@ -56,8 +56,8 @@ def is_valid(board, row, col, value, block_size):
         if board[i][col] == value:
             return False
 
-    # Determine starting coordinates of the current block to iterates throw it.
-    start_row = (row // block_size) * block_size  # Floor division will give '0', '1' or '2' etc
+    # Determine the starting coordinates of the current block to iterates throw it.
+    start_row = (row // block_size) * block_size  # Floor division will give '0', '1' or '2', etc.
     start_col = (col // block_size) * block_size  # Multiplied by 'block_size' will give:
     # The starting cell pos of the block
 
@@ -87,7 +87,7 @@ def sudoku_solver_helper(board, block_size=3):
                 sol = sudoku_solver_helper(board, block_size)
 
                 #  Check if the new solution is valid
-                if not sol:  # If there is no solution then backtrack
+                if not sol:  # If there is no solution, then backtrack
                     board[zero_cell_row][zero_cell_col] = 0  # by resetting the cell to 0 and trying with the next num
                 else:
                     return sol
