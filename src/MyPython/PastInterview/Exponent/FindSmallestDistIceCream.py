@@ -1,5 +1,3 @@
-import bisect
-
 """
 
 Given N kids and M ice cream sellers on a 1D line, find the smallest distance E such that every kid is within E of a seller.
