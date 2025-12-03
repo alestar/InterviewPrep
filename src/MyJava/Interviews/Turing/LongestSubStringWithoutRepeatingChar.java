@@ -1,4 +1,4 @@
-package MyJava.PastInverview.Turing;
+package MyJava.Interviews.Turing;
 
 /**
  * Given a string, find the length of the longest substring without repeating characters.

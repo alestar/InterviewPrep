@@ -68,7 +68,7 @@ def solution(arr):
 
     total_pairs = 0
     for c in counts.values():
-        total_pairs += c * (c + 1) // 2
+        total_pairs += c * (c + 1) // 2 # pairs (i, j) with i <= j , including (i, i) as well. Total amount of pairs that can be formed from c elements is c * (c + 1) / 2
     return total_pairs
 
 

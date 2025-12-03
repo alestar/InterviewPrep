@@ -15,6 +15,6 @@ def increment_list(digits):
 
 # Example usage
 input_list = [1,2,3]
-print("input: " + str(input_list))  # [1, 2, 4]
+print("input: " + str(input_list))  # [1, 2, 3]
 output_list = increment_list(input_list)
 print("output: " + str(output_list))  # [1, 2, 4]

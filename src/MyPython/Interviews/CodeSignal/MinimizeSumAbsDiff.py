@@ -40,12 +40,12 @@ Guaranteed constraints:
 
 [output] integer
 
-An integer representing the element from a that minimizes the sum of its absolute differences with all other elements.
+An integer representing the element from a that minimizes the sum of its absolute differences with all other elements. (calculate median)
 
 """
 def solution(a):
     n = len(a)
-    return a[(n - 1) // 2]
+    return a[(n - 1) // 2] # Fix: Use (n - 1) // 2 to get the lower median for even-length arrays
 
 # Example usage:
 a1 = [2, 4, 7]
